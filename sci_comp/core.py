@@ -78,7 +78,7 @@ def false_position():
 
 
 # ニュートン法
-def newton(f, i=0, e=10**-6):
+def newton(f: Callable[[float], float], i: float = 0, e: float = 10**-6):
     a_n = i
 
     while True:
