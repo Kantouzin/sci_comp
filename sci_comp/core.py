@@ -78,11 +78,11 @@ def false_position():
 
 
 # ニュートン法
-def newton(f, e):
-    a_n = 0
+def newton(f, i=0, e=10**-6):
+    a_n = i
 
     while True:
-        x_n = a_n - f(a_n) / central_difference(f, a_n, 10 ** -6)
+        x_n = a_n - f(a_n) / central_difference(f, a_n, e)
 
         if abs(f(x_n)) <= e:
             break
