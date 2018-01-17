@@ -91,3 +91,13 @@ def newton(f: Callable[[float], float], i: float = 0, e: float = 10**-6):
     result = x_n
 
     return result
+
+
+# 1次方程式における最小二乗法
+def least_squares(x, y):
+    n = x.size
+
+    a = (n * np.sum(x * y) - x.sum()*y.sum()) / (n * np.sum(x**2) - x.sum()**2)
+    b = (np.sum(x**2)*y.sum() - np.sum(x * y)*x.sum()) / (n * np.sum(x**2) - x.sum()**2)
+
+    return lambda t: a * t + b
