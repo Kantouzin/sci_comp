@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from typing import Callable
+from typing import Callable, Union
 
 import numpy as np
 
@@ -94,7 +94,7 @@ def newton(f: Callable[[float], float], i: float = 0, e: float = 10**-6):
 
 
 # 1次方程式における最小二乗法
-def least_squares(x, y):
+def least_squares(x: Union[np.ndarray], y: Union[np.ndarray]) -> Callable[[float], float]:
     n = x.size
 
     a = (n * np.sum(x * y) - x.sum()*y.sum()) / (n * np.sum(x**2) - x.sum()**2)
